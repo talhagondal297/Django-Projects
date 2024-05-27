@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'carts',
+    'orders',
     
 ]
 
@@ -156,3 +157,7 @@ EMAIL_HOST_PASSWORD="qgacclbppsfpxakr"
 EMAIL_USE_TLS=True
 
  
+ 
+STRIPE_PUBLIC_KEY="pk_test_51OMliPK4QhcGEFQHcUa9lnF1DRbkWvq8eXaDmztWL6SQiswl2yOQU56K7vIqZ7koLh5c7zawt7ein8yvY8G4d9yB00a9YEEhdh"
+STRIPE_SECRET_KEY="sk_test_51OMliPK4QhcGEFQHfpYVS8pz4Hp7Sap3pefBFGdjvpVLMgu8xquXZCGjEWqe7wXaT5FKsgc4rTkFV79DsRUqQSTS008hh4OsbY"
+
