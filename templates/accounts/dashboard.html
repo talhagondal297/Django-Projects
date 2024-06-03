@@ -1,9 +1,6 @@
 {% extends "base.html" %}
-
-
+{% load static %}
 {% block content %}
-
-
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-conten padding-y bg">
 {% include "includes/alerts.html" %}
@@ -14,7 +11,7 @@
             <article class="card">
                 <header class="card-header">
                     <strong class="d-inline-block mr-3">Logged in as: </strong>
-                    <span>{{user.full_name}}</span>
+                    <span>{{ user.full_name }}</span>
                 </header>
                 <div class="card-body">
                     <div class="row"> 
@@ -22,40 +19,30 @@
                             <div class="card" style="text-align:center;">
                                 <div class="card-body">
                                     <h5 class="card-title"> Total Orders</h5>
-                                    <h4>{{orders_count}}</h4>
-                                    <a href="{% url "my_orders" %}">View Orders</a>
+                                    <h4>{{ orders_count }}</h4>
+                                    <a href="{% url 'my_orders' %}">View Orders</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="card" style="text-align:center;">
                                 <div class="card-body">
-                                    <img src="{{ userprofile.profile_picture.url }}" alt ="User Profile Picture" width="50" height="50" style="border-radius:50%;">
-                                    <p class="mb-0">{{user.email}}</p>
+                                    {% if userprofile.profile_picture %}
+                                        <img src="{{ userprofile.profile_picture.url }}" alt="User Profile Picture" width="50" height="50" style="border-radius:50%;">
+                                    {% else %}
+                                        <img src="{% static 'images/banners/profile-picture-demo.jpg' %}" alt="Default Profile Picture" width="50" height="50" style="border-radius:50%;">
+                                    {% endif %}
+                                    <p class="mb-0">{{ user.email }}</p>
                                     <p>{{ user.phone_number }}</p>
-                                    
                                 </div>
                             </div>
                         </div>
-
-
-
-                            
                     </div> 
                 </div> 
             </article> <!-- order-group.// --> 
         </main>
     </div> <!-- row.// -->
     </div>
-    
-    
-    </section>
-    <!-- ========================= SECTION CONTENT END// ========================= -->
-    
-
-
-
-{% endblock  %}
-
-
-
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+{% endblock %}
